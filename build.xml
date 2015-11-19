@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project name="robol" default="jar">
+	<target name="compile" description="Compile the Robol interpreter.">
+		<mkdir dir="classes"/>
+		<javac srcdir="." destdir="classes" debug="true"
+			debuglevel="lines,vars,source" includeantruntime="false"/>
+	</target>
+
+	<target name="jar" description="Creates an executable jar-file.">
+		<jar destfile="robol.jar">
+			<fileset dir="classes" includes="**/*.class"/>
+			<manifest>
+				<attribute name="Main-class" value="Mandatory"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="zip" description="Make a zip-file.">
+		<zip destfile="INF3110_Mandatory2_kjetisva.zip" basedir="."/>
+	</target>
+</project>
